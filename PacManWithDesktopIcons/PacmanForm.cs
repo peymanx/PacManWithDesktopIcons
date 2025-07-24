@@ -50,16 +50,13 @@ namespace PacManWithDesktopIcons
         {
             if (outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing)
             {
-                // می‌تونی صدای در حال پخش رو همونطوری نگه داری یا مثلاً پیام بدی
                 return;
             }
 
-            // اگر پخش‌کننده قبلی وجود داشت، پاکش کن
             outputDevice?.Stop();
             outputDevice?.Dispose();
             waveReader?.Dispose();
 
-            // استفاده مستقیم از UnmanagedMemoryStream
             waveReader = new WaveFileReader(wavStream);
              outputDevice = new WaveOutEvent();
             outputDevice.Init(waveReader);
@@ -72,13 +69,12 @@ namespace PacManWithDesktopIcons
 
             using (Graphics g = Graphics.FromImage(canvas))
             {
-                // رسم عکس در موقعیت دلخواه، مثلاً بالا-چپ
                 g.DrawImage(inputImage, new Rectangle(0, 0, inputImage.Width, inputImage.Height));
                 pictureBox1.Image = canvas;
 
             }
 
-            pictureBox1.Invalidate(); // رفرش تصویر در PictureBox
+            pictureBox1.Invalidate(); 
         }
 
         private void DrawOn(int x, int y, int w, int h)
@@ -114,7 +110,7 @@ namespace PacManWithDesktopIcons
             for (int i = 0; i < count; i++)
             {
                 // SendMessage2(hwndListView, LVM_GETITEMTEXT, (IntPtr)i, itemText);
-                string iconName = "آیکون شماره " + (i + 1);
+                string iconName = "Icon #" + (i + 1);
                 iconNames.Add(iconName);
             }
 
@@ -141,7 +137,6 @@ namespace PacManWithDesktopIcons
             IntPtr lParam = (IntPtr)((newY << 16) | (newX & 0xFFFF));
             WindowsAPI.SendMessage(hwndListView, WindowsAPI.LVM_SETITEMPOSITION, iconIndex, lParam);
 
-            Console.WriteLine($"آیکون {iconIndex} به مکان جدید ({newX}, {newY}) منتقل شد.");
         }
 
 
