@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Papirus-Team-Papirus-Apps-Preferences-desktop-color %281%29.ico</ApplicationIcon>
+    <ApplicationIcon>pacman%281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -125,8 +125,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="pacman%281%29.ico" />
     <Content Include="Pacman_Gameplay.tif" />
-    <Content Include="Papirus-Team-Papirus-Apps-Preferences-desktop-color %281%29.ico" />
     <None Include="Resources\pacman_eatfruit.wav" />
     <None Include="Resources\pacman_chomp.wav" />
     <None Include="Resources\pacman_beginning.wav" />
