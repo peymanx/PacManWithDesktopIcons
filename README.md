@@ -3,7 +3,7 @@
 **Pac-Man, but on your Windows desktop!**  
 This experimental and fun C# Windows Forms project lets you control a Pac-Man character over your **actual desktop icons** — using them as points in a virtual maze!
 
-![Pac-Man Desktop Game Screenshot](screenshots/pacman.png) 
+![Pac-Man Desktop Game Screenshot](Screenshots/pacman.png) 
 
 ---
 
@@ -36,7 +36,7 @@ This game manipulates the Windows desktop directly by:
 1. Clone the repository  
    ```bash
    git clone https://github.com/yourusername/pacman-desktop-icons.git
-````
+   ```
 
 2. Open the `.sln` file in Visual Studio
 3. Build & run the project
