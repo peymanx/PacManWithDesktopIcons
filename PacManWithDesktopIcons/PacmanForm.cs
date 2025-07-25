@@ -343,7 +343,7 @@ namespace PacManWithDesktopIcons
 
         public int CalculateSize()
         {
-            return 10;
+            return 70;
             return (int)(DesktopIconMetrics.GetDesktopIconSpacing().Value.Height * 1.3);
 
         }
