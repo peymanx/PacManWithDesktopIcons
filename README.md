@@ -62,6 +62,7 @@ This game manipulates the Windows desktop directly by:
 3. Build & run the project
 4. Use arrow keys or on-screen buttons to start eating your desktop icons!
 
+![Pac-Man Desktop Game Screenshot](Screenshots/desktop.png) 
 
 
 ## 🤝 Contributing
