@@ -71,7 +71,7 @@
             this.cmbIconList.FormattingEnabled = true;
             this.cmbIconList.Location = new System.Drawing.Point(344, 35);
             this.cmbIconList.Name = "cmbIconList";
-            this.cmbIconList.Size = new System.Drawing.Size(277, 27);
+            this.cmbIconList.Size = new System.Drawing.Size(277, 24);
             this.cmbIconList.TabIndex = 10000000;
             this.cmbIconList.TabStop = false;
             this.cmbIconList.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -99,7 +99,7 @@
             0,
             -2147483648});
             this.numY.Name = "numY";
-            this.numY.Size = new System.Drawing.Size(76, 32);
+            this.numY.Size = new System.Drawing.Size(76, 27);
             this.numY.TabIndex = 3;
             this.numY.Value = new decimal(new int[] {
             150,
@@ -123,7 +123,7 @@
             0,
             -2147483648});
             this.numX.Name = "numX";
-            this.numX.Size = new System.Drawing.Size(76, 32);
+            this.numX.Size = new System.Drawing.Size(76, 27);
             this.numX.TabIndex = 5;
             this.numX.Value = new decimal(new int[] {
             100,
@@ -134,7 +134,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1;
+            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // chkLock
@@ -235,7 +235,7 @@
             this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.trackBar1.Size = new System.Drawing.Size(298, 56);
+            this.trackBar1.Size = new System.Drawing.Size(298, 45);
             this.trackBar1.SmallChange = 50;
             this.trackBar1.TabIndex = 10000003;
             this.trackBar1.Value = 10;
@@ -387,7 +387,7 @@
             // 
             // PacmanForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(638, 383);

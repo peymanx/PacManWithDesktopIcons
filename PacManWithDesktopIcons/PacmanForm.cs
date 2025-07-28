@@ -14,7 +14,7 @@ namespace PacManWithDesktopIcons
 {
     public partial class PacmanForm : Form
     {
-        public int Step { get; set; } = 15;
+        public int Step { get; set; } = 18;
         private readonly List<string> iconNames = new List<string>();
 
         public Direction Dir { get; set; } = Direction.Null;
@@ -40,7 +40,7 @@ namespace PacManWithDesktopIcons
 
         Bitmap canvas;
         Brush BrushColor = Brushes.Black;
-        int Size = 50;
+        int Size = 100;
 
         private WaveOutEvent outputDevice;
         private WaveFileReader waveReader;
@@ -58,7 +58,7 @@ namespace PacManWithDesktopIcons
             waveReader?.Dispose();
 
             waveReader = new WaveFileReader(wavStream);
-             outputDevice = new WaveOutEvent();
+            outputDevice = new WaveOutEvent();
             outputDevice.Init(waveReader);
             outputDevice.Play();
         }
@@ -74,25 +74,47 @@ namespace PacManWithDesktopIcons
 
             }
 
-            pictureBox1.Invalidate(); 
+            pictureBox1.Invalidate();
         }
 
         private void DrawOn(int x, int y, int w, int h)
         {
 
-            if (chkDotEater.Checked == false) return;
-            using (Graphics g = Graphics.FromImage(canvas))
+
+            new Task(() =>
             {
-                var rect = new Rectangle(x, y, w, h); // مستطیل مقصد
-                g.FillRectangle(BrushColor, rect);
+
+                try
+                {
+                    if (chkDotEater.Checked == false) return;
+                    using (Graphics g = Graphics.FromImage(canvas))
+                    {
+                        var rect = new Rectangle(x, y, w, h); // مستطیل مقصد
+                        g.FillRectangle(BrushColor, rect);
+                    }
+
+                    // قرار دادن تصویر در PictureBox
+                    DrawImageOnCanvas(Properties.Resources.Pacman_frame);
+
+                    Wallpaper.Set(pictureBox1.Image, Wallpaper.Style.Stretched);
+                }
+                catch (Exception)
+                {
+
+
+                }
+
+            }).Start();
+
+            try
+            {
+                pictureBox1.Image = canvas;
             }
+            catch (Exception)
+            {
 
-            // قرار دادن تصویر در PictureBox
-            pictureBox1.Image = canvas;
-            DrawImageOnCanvas(Properties.Resources.Pacman_frame);
-
-            Wallpaper.Set(pictureBox1.Image, Wallpaper.Style.Stretched);
-
+                
+            }
 
         }
 
@@ -121,7 +143,7 @@ namespace PacManWithDesktopIcons
         }
 
 
-        public  void MoveIconRelative(int iconIndex, int dx, int dy)
+        public void MoveIconRelative(int iconIndex, int dx, int dy)
         {
             IntPtr hwndListView = WindowsAPI.GetDesktopListView();
             if (hwndListView == IntPtr.Zero) return;
@@ -202,9 +224,9 @@ namespace PacManWithDesktopIcons
 
         private void btnUp(object sender, EventArgs e)
         {
-            numY.Value -= Step;
+            numY.Value -= (int) (Step*0.7);
 
-            DrawOn((int)numX.Value, (int)numY.Value - 8, Size, Size);
+            DrawOn((int)numX.Value, (int)numY.Value - 10, Size, Size);
 
             MoveIconRelative(cmbIconList.SelectedIndex, (int)numX.Value, (int)numY.Value);
 
@@ -228,7 +250,7 @@ namespace PacManWithDesktopIcons
 
         private void btnDown(object sender, EventArgs e)
         {
-            numY.Value += Step;
+            numY.Value += (int)(Step * 0.7); ;
             DrawOn((int)numX.Value, (int)numY.Value + 5, Size, Size);
 
 
@@ -265,7 +287,7 @@ namespace PacManWithDesktopIcons
         private void btnLeft(object sender, EventArgs e)
         {
             numX.Value -= Step;
-            DrawOn((int)numX.Value - 5, (int)numY.Value, Size, Size);
+            DrawOn((int)numX.Value - 5, (int)numY.Value, Size, Size+5);
 
 
             MoveIconRelative(cmbIconList.SelectedIndex, (int)numX.Value, (int)numY.Value);
@@ -304,7 +326,7 @@ namespace PacManWithDesktopIcons
         {
             numX.Value += Step;
 
-            DrawOn((int)numX.Value + 5, (int)numY.Value, Size, Size);
+            DrawOn((int)numX.Value , (int)numY.Value, Size, Size);
 
             MoveIconRelative(cmbIconList.SelectedIndex, (int)numX.Value, (int)numY.Value);
 
@@ -373,13 +395,12 @@ namespace PacManWithDesktopIcons
             ResetPlayer();
             PlayWav(Properties.Resources.pacman_beginning);
 
-            new Task(() =>
-            {
-                Thread.Sleep(2000);
-                LoadDesktopIcons();
-                btnRight(sender, e);
 
-            }).Start();
+        
+            LoadDesktopIcons();
+            btnRight(sender, e);
+
+
 
 
             Minimize(sender, e);
@@ -444,12 +465,12 @@ namespace PacManWithDesktopIcons
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            timer1.Interval = trackBar1.Value * 7;
+            timer1.Interval = trackBar1.Value * 15;
             lblSpeed.Text = (trackBar1.Maximum - trackBar1.Value + 1).ToString();
             if (timer1.Enabled) timer1_Tick(sender, e);
         }
 
-   
+
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
