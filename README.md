@@ -3,7 +3,9 @@
 **Pac-Man, but on your Windows desktop!**  
 This experimental and fun C# Windows Forms project lets you control a Pac-Man character over your **actual desktop icons** — using them as points in a virtual maze!
 
-![Pac-Man Desktop Game Screenshot](Screenshots/pacman.png) 
+🎬 [Preview](pacman-low-res.mp4)
+
+
 
 ---
 
@@ -38,7 +40,7 @@ You may notice, however, that there are multiple types of "edible" tiles in the 
 | ![ghost](https://raw.githubusercontent.com/mircea-pavel-anton/pacman/refs/heads/master/res/gifs/frightened.gif) | Frightened Ghost | Grants Pacman +200 extra points             |
 
 ## 🛠 How it Works
-
+![Pac-Man Desktop Game Screenshot](Screenshots/pacman.png) 
 This game manipulates the Windows desktop directly by:
 - Accessing the **ListView** handle of the desktop icons  
 - Reading and updating icon positions via **Windows API (SendMessage)**  
