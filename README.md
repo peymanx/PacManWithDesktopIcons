@@ -3,8 +3,10 @@
 **Pac-Man, but on your Windows desktop!**  
 This experimental and fun C# Windows Forms project lets you control a Pac-Man character over your **actual desktop icons** — using them as points in a virtual maze!
 
-🎬 [Preview](Screenshots/pacman-low-res.mp4)
 
+<video width="640" controls>
+  <source src="Screenshots/pacman-low-res.mp4" type="video/mp4">
+</video>
 
 
 ---
