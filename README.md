@@ -5,7 +5,7 @@ This experimental and fun C# Windows Forms project lets you control a Pac-Man ch
 
 
 <video width="640" controls>
-  <source src="Screenshots/pacman-low-res.mp4" type="video/mp4">
+  <source src="https://github.com/peymanx/PacManWithDesktopIcons/raw/refs/heads/master/Screenshots/pacman-low-res.mp4" type="video/mp4">
 </video>
 
 
